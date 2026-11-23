@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centric Place | Where Detroit Creates</title>
+<meta name="description" content="Centric Place is a 10,000 sq ft hub for Black arts, culture, and entrepreneurship in Farmington Hills. Coworking, events, community.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --black: #0A0A0A;
+  --dark: #1A1A1A;
+  --orange: #FF5C28;
+  --pink: #FF2E88;
+  --lime: #C6F135;
+  --white: #FFFFFF;
+  --gray: #888888;
+}
+body { font-family: 'Inter', sans-serif; color: var(--white); background: var(--black); line-height: 1.6; }
+h1, h2, h3 { font-family: 'Syne', sans-serif; }
+a { text-decoration: none; color: inherit; }
+
+/* Demo Banner */
+.demo-banner { background: var(--orange); color: white; text-align: center; padding: 10px 20px; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; position: sticky; top: 0; z-index: 1000; }
+.demo-banner a { text-decoration: underline; }
+
+/* Nav */
+nav { padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 36px; background: var(--black); z-index: 999; }
+.nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 800; letter-spacing: -1px; }
+.logo span { color: var(--orange); }
+.nav-links { display: flex; gap: 32px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.nav-links a:hover { color: var(--orange); }
+.nav-cta { background: var(--orange); color: white; padding: 12px 28px; border-radius: 100px; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Hero - Full image with overlay */
+.hero { position: relative; min-height: 90vh; display: flex; align-items: flex-end; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+.hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--black) 0%, transparent 60%); }
+.hero-content { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 0 32px 80px; width: 100%; }
+.hero-tag { display: inline-block; background: var(--lime); color: var(--black); padding: 8px 20px; border-radius: 100px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px; }
+.hero h1 { font-size: 96px; line-height: 0.9; font-weight: 800; letter-spacing: -3px; margin-bottom: 24px; max-width: 900px; }
+.hero h1 span { color: var(--orange); }
+.hero p { font-size: 20px; line-height: 1.6; max-width: 600px; color: rgba(255,255,255,0.8); margin-bottom: 32px; font-weight: 300; }
+.hero-meta { display: flex; gap: 48px; flex-wrap: wrap; }
+.hero-meta div { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6); }
+.hero-meta strong { display: block; font-family: 'Syne', sans-serif; font-size: 32px; color: white; text-transform: none; letter-spacing: -1px; margin-bottom: 4px; }
+
+/* Marquee */
+.marquee { background: var(--orange); color: white; padding: 16px 0; overflow: hidden; white-space: nowrap; transform: rotate(-1deg) scale(1.02); margin: 40px 0; }
+.marquee-inner { display: inline-block; animation: scroll 25s linear infinite; font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+.marquee-inner span { margin: 0 30px; }
+@keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Section */
+.section { max-width: 1400px; margin: 0 auto; padding: 100px 32px; }
+.section-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--orange); margin-bottom: 16px; }
+.section h2 { font-size: 64px; line-height: 1; font-weight: 800; letter-spacing: -2px; margin-bottom: 24px; }
+.section-intro { font-size: 19px; line-height: 1.7; color: rgba(255,255,255,0.7); max-width: 650px; font-weight: 300; }
+
+/* Spaces grid */
+.spaces { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 60px; }
+.space { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 16/10; cursor: pointer; }
+.space img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.space:hover img { transform: scale(1.05); }
+.space-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%); padding: 32px; display: flex; flex-direction: column; justify-content: flex-end; }
+.space h3 { font-size: 28px; margin-bottom: 8px; }
+.space p { font-size: 15px; color: rgba(255,255,255,0.8); }
+.space-tag { position: absolute; top: 20px; left: 20px; background: var(--lime); color: var(--black); padding: 6px 14px; border-radius: 100px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Features */
+.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.1); margin-top: 60px; }
+.feature { background: var(--dark); padding: 48px 36px; }
+.feature-icon { font-size: 40px; margin-bottom: 20px; }
+.feature h3 { font-size: 24px; margin-bottom: 12px; }
+.feature p { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.65); }
+
+/* Events */
+.events { margin-top: 60px; }
+.event { display: grid; grid-template-columns: 120px 1fr auto; gap: 32px; padding: 32px 0; border-top: 1px solid rgba(255,255,255,0.15); align-items: center; }
+.event:last-child { border-bottom: 1px solid rgba(255,255,255,0.15); }
+.event-date { text-align: center; }
+.event-day { font-family: 'Syne', sans-serif; font-size: 48px; font-weight: 800; line-height: 1; color: var(--orange); }
+.event-month { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6); }
+.event h3 { font-size: 24px; margin-bottom: 6px; }
+.event p { font-size: 15px; color: rgba(255,255,255,0.65); }
+.event-btn { background: transparent; border: 2px solid white; color: white; padding: 12px 28px; border-radius: 100px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; }
+.event-btn:hover { background: white; color: var(--black); }
+
+/* Tenants */
+.tenants { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; }
+.tenant { border: 1px solid rgba(255,255,255,0.2); padding: 16px 28px; border-radius: 100px; font-size: 15px; font-weight: 600; }
+.tenant:hover { border-color: var(--orange); color: var(--orange); }
+
+/* Membership */
+.membership { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+.plan { border: 1px solid rgba(255,255,255,0.2); border-radius: 16px; padding: 40px 32px; position: relative; }
+.plan.featured { border-color: var(--orange); background: rgba(255,92,40,0.05); }
+.plan-badge { position: absolute; top: -12px; left: 32px; background: var(--orange); padding: 6px 16px; border-radius: 100px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.plan h3 { font-size: 22px; margin-bottom: 8px; }
+.plan-price { font-family: 'Syne', sans-serif; font-size: 48px; font-weight: 800; margin: 20px 0 8px; }
+.plan-price span { font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.6); }
+.plan p { font-size: 15px; color: rgba(255,255,255,0.65); margin-bottom: 24px; }
+.plan ul { list-style: none; margin-bottom: 32px; }
+.plan li { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 14px; }
+.plan li::before { content: '✓ '; color: var(--lime); font-weight: 700; }
+.plan-btn { display: block; text-align: center; background: white; color: var(--black); padding: 16px; border-radius: 100px; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+.plan.featured .plan-btn { background: var(--orange); color: white; }
+
+/* CTA */
+.cta { text-align: center; padding: 100px 32px; }
+.cta h2 { font-size: 72px; line-height: 1; margin-bottom: 24px; }
+.cta h2 span { color: var(--pink); }
+.cta p { font-size: 19px; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 36px; }
+.cta-btn { display: inline-block; background: var(--pink); color: white; padding: 20px 48px; border-radius: 100px; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Footer */
+footer { max-width: 1400px; margin: 0 auto; padding: 60px 32px 40px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
+footer .logo { font-size: 22px; }
+footer p { font-size: 13px; color: rgba(255,255,255,0.5); }
+
+@media (max-width: 900px) {
+  .hero h1 { font-size: 56px; }
+  .spaces { grid-template-columns: 1fr; }
+  .features { grid-template-columns: 1fr; }
+  .membership { grid-template-columns: 1fr; }
+  .event { grid-template-columns: 1fr; gap: 16px; }
+  .section h2 { font-size: 40px; }
+  .cta h2 { font-size: 44px; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  Demo site built by Lexis Sapphire Studio for Centric Place • <a href="https://lexissapphirestudio.com/">See more work</a>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">CENTRIC<span>PLACE</span></a>
+    <div class="nav-links">
+      <a href="#spaces">Spaces</a>
+      <a href="#events">Events</a>
+      <a href="#community">Community</a>
+      <a href="#membership">Membership</a>
+    </div>
+    <a href="#membership" class="nav-cta">Join Us</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="images/centric-place.jpg" alt="Centric Place interior">
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag">Farmington Hills • Est. 2022</div>
+    <h1>Where Detroit<br><span>creates,</span> builds,<br>and belongs.</h1>
+    <p>Centric Place is a 10,000 square foot hub for Black arts, culture, and entrepreneurship. Coworking, events, studios, and community, all under one roof.</p>
+    <div class="hero-meta">
+      <div><strong>10,000</strong>Sq ft of space</div>
+      <div><strong>10+</strong>Companies housed</div>
+      <div><strong>1,000+</strong>Entrepreneurs served</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-inner">
+    <span>Coworking</span>•<span>Events</span>•<span>Art</span>•<span>Community</span>•<span>Entrepreneurship</span>•<span>Culture</span>•<span>Coworking</span>•<span>Events</span>•<span>Art</span>•<span>Community</span>•<span>Entrepreneurship</span>•<span>Culture</span>•
+  </div>
+</div>
+
+<section class="section" id="spaces">
+  <div class="section-label">The space</div>
+  <h2>Built for how you actually work.</h2>
+  <p class="section-intro">From focused deep work to big community events, Centric Place has a space for every kind of day.</p>
+  
+  <div class="spaces">
+    <div class="space">
+      <img src="images/centric-place.jpg" alt="Coworking space">
+      <div class="space-tag">Coworking</div>
+      <div class="space-overlay">
+        <h3>Open Workspace</h3>
+        <p>Hot desks, dedicated desks, and private offices. High-speed wifi, printing, coffee, and a community that gets it.</p>
+      </div>
+    </div>
+    <div class="space">
+      <img src="images/operations-school-team.jpg" alt="Event space">
+      <div class="space-tag">Events</div>
+      <div class="space-overlay">
+        <h3>Event Hall</h3>
+        <p>Host workshops, panels, launches, and celebrations. Capacity for 100+ guests with AV, staging, and catering setup.</p>
+      </div>
+    </div>
+    <div class="space">
+      <img src="images/racheal-allen.jpg" alt="Meeting rooms">
+      <div class="space-tag">Meetings</div>
+      <div class="space-overlay">
+        <h3>Meeting Rooms</h3>
+        <p>Private rooms for client calls, team meetings, and one-on-ones. Book by the hour or include in your membership.</p>
+      </div>
+    </div>
+    <div class="space">
+      <img src="images/centric-place.jpg" alt="Creative studios">
+      <div class="space-tag">Studios</div>
+      <div class="space-overlay">
+        <h3>Creative Studios</h3>
+        <p>Art studios, content creation spaces, and maker areas. Built for artists, designers, and creators to do their best work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 0;">
+  <div class="section-label">What's included</div>
+  <h2>More than just a desk.</h2>
+  
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">🤝</div>
+      <h3>Community</h3>
+      <p>Connect with founders, artists, and changemakers. Weekly networking, monthly showcases, and a Slack community that actually helps.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">📚</div>
+      <h3>Operations School</h3>
+      <p>Home to Operations School's 9-week program. Members get priority access to workshops, office hours, and resources.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🎨</div>
+      <h3>Arts & Culture</h3>
+      <p>Gallery space, performances, and exhibitions celebrating Black arts and culture. Your work deserves to be seen.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">💡</div>
+      <h3>Mentorship</h3>
+      <p>Access to experienced entrepreneurs, investors, and industry leaders. Office hours, 1:1 sessions, and group mentorship.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">📅</div>
+      <h3>Events</h3>
+      <p>Workshops, panels, networking mixers, and cultural celebrations. Something happening every week.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🏢</div>
+      <h3>Business Support</h3>
+      <p>Mail handling, reception, meeting room booking, and admin support. We handle the logistics so you can focus on the work.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="events" style="padding-top: 0;">
+  <div class="section-label">Upcoming events</div>
+  <h2>What's happening at Centric.</h2>
+  
+  <div class="events">
+    <div class="event">
+      <div class="event-date">
+        <div class="event-day">28</div>
+        <div class="event-month">Nov 2026</div>
+      </div>
+      <div>
+        <h3>Small Business Saturday Showcase</h3>
+        <p>Meet the makers, creators, and entrepreneurs of Centric Place. Shop local, support Black-owned businesses, and celebrate community.</p>
+      </div>
+      <a href="#" class="event-btn">RSVP</a>
+    </div>
+    <div class="event">
+      <div class="event-date">
+        <div class="event-day">05</div>
+        <div class="event-month">Dec 2026</div>
+      </div>
+      <div>
+        <h3>Operations School Info Session</h3>
+        <p>Learn about the 9-week "Get Your Business Legit" program. Meet the team, hear from graduates, and ask questions.</p>
+      </div>
+      <a href="#" class="event-btn">RSVP</a>
+    </div>
+    <div class="event">
+      <div class="event-date">
+        <div class="event-day">12</div>
+        <div class="event-month">Dec 2026</div>
+      </div>
+      <div>
+        <h3>Holiday Market & Art Show</h3>
+        <p>Local artists and makers showcase their work. Food, music, and community. Free to attend.</p>
+      </div>
+      <a href="#" class="event-btn">RSVP</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="community" style="padding-top: 0;">
+  <div class="section-label">The community</div>
+  <h2>10+ companies call Centric home.</h2>
+  <p class="section-intro">From startups to established businesses, our tenants are building something real. Here's who's in the building.</p>
+  
+  <div class="tenants">
+    <span class="tenant">Operations School</span>
+    <span class="tenant">OPSIDIA</span>
+    <span class="tenant">Bouncing Around the Motor City</span>
+    <span class="tenant">Detroit Design Co.</span>
+    <span class="tenant">Motor City Media</span>
+    <span class="tenant">The Collective</span>
+    <span class="tenant">Black Girl Ventures</span>
+    <span class="tenant">Farmington Hills Arts Council</span>
+  </div>
+</section>
+
+<section class="section" id="membership" style="padding-top: 0;">
+  <div class="section-label">Membership</div>
+  <h2>Find your place.</h2>
+  <p class="section-intro">Flexible options for every kind of creator. No long-term contracts, cancel anytime.</p>
+  
+  <div class="membership">
+    <div class="plan">
+      <h3>Day Pass</h3>
+      <div class="plan-price">$25<span>/day</span></div>
+      <p>Perfect for trying us out or dropping in when you need a change of scenery.</p>
+      <ul>
+        <li>Hot desk access</li>
+        <li>High-speed wifi</li>
+        <li>Coffee and tea</li>
+        <li>Community events</li>
+      </ul>
+      <a href="#" class="plan-btn">Get a Day Pass</a>
+    </div>
+    <div class="plan featured">
+      <div class="plan-badge">Most Popular</div>
+      <h3>Community</h3>
+      <div class="plan-price">$199<span>/month</span></div>
+      <p>For regulars who want a home base and full access to the community.</p>
+      <ul>
+        <li>Unlimited hot desk access</li>
+        <li>Meeting room credits (8 hrs/mo)</li>
+        <li>Mail handling</li>
+        <li>All community events</li>
+        <li>Operations School discounts</li>
+        <li>Slack community access</li>
+      </ul>
+      <a href="#" class="plan-btn">Join Community</a>
+    </div>
+    <div class="plan">
+      <h3>Dedicated</h3>
+      <div class="plan-price">$399<span>/month</span></div>
+      <p>Your own desk, your own space, 24/7 access. For serious builders.</p>
+      <ul>
+        <li>Dedicated desk</li>
+        <li>24/7 building access</li>
+        <li>Meeting room credits (16 hrs/mo)</li>
+        <li>Private storage</li>
+        <li>Business address</li>
+        <li>Priority event booking</li>
+      </ul>
+      <a href="#" class="plan-btn">Go Dedicated</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Come see it<br><span>for yourself.</span></h2>
+  <p>Book a tour, grab a day pass, or just stop by. We'd love to show you around.</p>
+  <a href="mailto:hello@centricplace.com" class="cta-btn">Book a Tour →</a>
+</section>
+
+<footer>
+  <div class="logo">CENTRIC<span>PLACE</span></div>
+  <p>Farmington Hills, Michigan • Home to Operations School & OPSIDIA</p>
+  <p>Demo by <a href="https://lexissapphirestudio.com/" style="text-decoration: underline;">Lexis Sapphire Studio</a></p>
+</footer>
+
+</body>
+</html>
